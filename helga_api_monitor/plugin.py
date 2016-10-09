@@ -48,7 +48,7 @@ def error_count():
     endpoint = settings.API_MONITOR_ENDPOINT
     try:
         response = requests.get(endpoint).json()
-        return len(response['errors'])
+        return len(response['errors']) if 'errors' in response else len(response)
     except:
         return 0
 
